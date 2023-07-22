@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context.xsd ">
+        
+        
+<!-- autowire byName
+when we use autowire byName the id of the bean should be same as the object name. 
+in this case heart is the object name created in human class.and the same name is given in the id of heart bean -->   
+<!--<bean id="human" class="com.gearUp.di.autowiring.human" autowire="byName"></bean>
+   	<bean id="heart" class="com.gearUp.di.autowiring.heart"></bean> -->
+   	
+<!-- autowire byType
+when we use autowire byType then the id name should not be same as object name. -->
+<!--<bean id="human" class="com.gearUp.di.autowiring.human" autowire="byType"></bean>
+   	<bean id="heartObject" class="com.gearUp.di.autowiring.heart"></bean> -->
+   	
+<!-- autowire using Constructor -->
+<!--<bean id="human" class="com.gearUp.di.autowiring.human" autowire="constructor"></bean>
+   	<bean id="heartObject" class="com.gearUp.di.autowiring.heart"></bean> -->
+   	
+   	
+<!-- using annotation to do autowiring -->
+<!-- <context:annotation-config></context:annotation-config>
+<bean id="heartObject" class="com.gearUp.di.autowiring.heart"></bean>
+<bean id="human" class="com.gearUp.di.autowiring.human"></bean> -->
+   	
+<!-- the way the autowire works is by first checking byType.if byType fails then it will check byName.
+so what will happening if both the ways fails?
+for example:-
+<bean id="humanHeart" class="com.gearUp.di.autowiring.heart">
+<bean id="octpousHeart" class="com.gearUp.di.autowiring.heart">
+when we use autowired then spring don't know which one of the above two beans to pick. because both the above beans are of same type i.e:heart type.
+and also both the beans ids not matching with the objects names in human class.
+
+solution:-
+when both byType and byName checks fail,we can use @Qualifier to specify which bean to use to create the objects.
+ -->
+ 	<context:annotation-config></context:annotation-config>
+ 	<bean id="humanHeart" class="com.gearUp.di.autowiring.heart">
+ 		<property name="name" value="human"></property>
+ 		<property name="hearts" value="1"></property>
+ 	</bean>
+ 	
+	<bean id="octpousHeart" class="com.gearUp.di.autowiring.heart">
+	 	<property name="name" value="octpous"></property>
+ 		<property name="hearts" value="3"></property>
+ 	</bean>
+	<bean id="human" class="com.gearUp.di.autowiring.human"/>
+
+
+  	
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- SETTER INJECTION
+
+   <bean id="student" class="com.gearUpDi.student">
+    	<property name="studentName" value="sai"></property>
+    	<property name="id" value="72"></property>
+    </bean>
+-->
+
+<!--     
+ CONSTRUCTOR INJECTION
+
+    <bean id="student" class="com.gearUpDi.student">
+    	<constructor-arg name="studentName" value="sai" type="java.lang.String"/>
+    	<constructor-arg name="id" value="170072" type="int"/>
+    </bean> -->
+    
+    <bean id="student" class="com.gearUpDi.student">
+    	<constructor-arg name="studentName" value="sai" type="java.lang.String"/>
+    </bean>
+    
+
+
+</beans>

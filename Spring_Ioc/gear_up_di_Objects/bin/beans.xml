@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+<!--     in the below code we are creating mathcheat object each time we create a new student object. 
+		instead of that we can create only one time and use that reference.  --> 
+        
+<!--    	<bean id="student1" class="com.DiForObjects.student">
+   		<property name="id" value="1"></property>
+   		<property name="mc">
+   			<bean class="com.DiForObjects.mathCheat"></bean>
+   		</property>
+   	</bean>
+   	
+   	   	<bean id="student2" class="com.DiForObjects.student">
+   		<property name="id" value="1"></property>
+   		<property name="mc">
+   			<bean class="com.DiForObjects.mathCheat"></bean>
+   		</property>
+   	</bean> -->
+   	
+<!--    	
+   	in the below code we create the math cheat function separately.
+   	 so that it can be reused for different student objects. -->
+   	
+   	<bean id="mathCheatObject" class="com.DiForObjects.mathCheat"></bean>
+   	
+   	<bean id="student1" class="com.DiForObjects.student">
+   		<property name="id" value="1"></property>
+   		<property name="mc" ref="mathCheatObject"></property>
+   	</bean>
+   	
+   	<bean id="student2" class="com.DiForObjects.student">
+   		<property name="id" value="2"></property>
+   		<property name="mc" ref="mathCheatObject"></property>
+   	</bean>
+   	
+   	
+</beans>

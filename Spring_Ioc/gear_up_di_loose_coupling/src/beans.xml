@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+   	
+   	<bean id="mathCheatObject" class="com.gearUp.di.looseCoupling.maths"></bean>
+   	<bean id="scienceCheatObject" class="com.gearUp.di.looseCoupling.science"></bean>
+   	
+   	<bean id="student1" class="com.gearUp.di.looseCoupling.student">
+   		<property name="id" value="1"></property>
+   		<property name="cheatingHelper" ref="mathCheatObject"></property>
+   	</bean>
+   	
+   	<bean id="student2" class="com.gearUp.di.looseCoupling.student">
+   		<property name="id" value="2"></property>
+   		<property name="cheatingHelper" ref="scienceCheatObject"></property>
+   	</bean>
+   	
+   	
+</beans>
